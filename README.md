@@ -1,5 +1,8 @@
-![here](/samples/adverserial_1_1.png)
-
+![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_2_1.png =250x)
+![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_4_4.png =250x)
+![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_5_1.png =250x)
+![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_5_3.png =250x)
+![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_5.png =250x)
 
 ## Motivation
 
