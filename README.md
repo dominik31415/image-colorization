@@ -51,9 +51,14 @@ Further, my network failed to treat more complex structures, like cluttered imag
 
 ## The files:
 model_utils.py | main file defining the models used
+
 data_utils.py  | file defining the data generator (using multiprocessing) and "magic weights"
+
 definitions_XYZ.py | files to be imported for the various training steps
+
 calc_magic_weights.jpynb | script to generate magic weights (step 0)
+
 direct_train.jpynb | step 1 of training, uses cross entropy to get the generator onto the right track
+
 main_train.jpynb | step 2 of training, uses WGAN-GP to refine the generator
 
