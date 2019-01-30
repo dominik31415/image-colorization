@@ -1,4 +1,4 @@
-[here!](/samples/adverserial_1_1.png)
+![here](/samples/adverserial_1_1.png)
 
 
 ## Motivation
