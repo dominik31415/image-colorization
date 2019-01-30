@@ -1,10 +1,12 @@
 ## Teaser
 
+The original images, the grey images the network had to work, as well as some other examples (of various quality) can be found in the samples subfolder.
+
 <img src="/samples/single_images/adverserial_2_2.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_2_8.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_4_4.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5.png" alt="drawing" width="200"/> 
 
 <img src="/samples/single_images/adverserial_5_1.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5_3.png" alt="drawing" width="200"/>  | <img src="/samples/single_images/adverserial_5_5.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5_9.png" alt="drawing" width="200"/> 
 
-The original images, as well as some other examples including the grey images the network had to work with can be found in the sample subfolder.
+
 
 ## Motivation
 
@@ -17,7 +19,7 @@ A possible remedy are GANs, which are unfortunately hard to train. Straight out 
 
 ## Results
 
-My network ended up producing many [“soso” images]((/samples/good.png) (about 70%), a few ugly images (about 10%) and quite some awesome images (about 20%), as shown above. The critic was set the outmost 16px of each generated image, thus they usually are a bit off in color.
+My network ended up producing many [“soso” images](https://github.com/dominik31415/image-colorization/blob/master/samples/soso.png) (about 70%), a few [ugly images](https://github.com/dominik31415/image-colorization/blob/master/samples/ugly.png) (about 10%) and quite some [awesome images](https://github.com/dominik31415/image-colorization/blob/master/samples/good.png) (about 20%), as shown above. The critic was set the outmost 16px of each generated image, thus they usually are a bit off in color.
 
 The most common problem (the “soso” category) are incomplete re-colorizations, i.e. the network had the right idea but did not fill in the full structure, or it simply overlooked an object completely and instead merged it with the background. Longer training might have helped here – training took altogether almost a week on my GPU and I had to stop it before results actually plateaued. I only pre-trained for less than 10 epochs, and used the GAN training for an additional 10 epochs.
 
