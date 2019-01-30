@@ -43,7 +43,7 @@ Further, my network failed to treat more complex structures, like cluttered imag
 (e) I used the places365 dataset (2016 edition, 256x256 pixels). Eventually I restricted myself to the wild_field subcategory, corresponding of 54k and 27k images. I also used the typical data augmentation methods (flipping and rotating). 
 
 
-## Refernces
+## References
 [1] Image Colorization with Generative Adversarial Networks, *Kamyar Nazeri, Eric Ng, Mehran Ebrahimi*, 2018
 
 [2] Colorful Image Colorization, *Richard Zhang, Phillip Isola, Alexei A. Efros*, 2016
@@ -51,7 +51,7 @@ Further, my network failed to treat more complex structures, like cluttered imag
 
 ## The files:
 model_utils.py | main file defining the models used
-data_utils.py  | file defining the data generator (using multiprocessing) and "magic weighst"
+data_utils.py  | file defining the data generator (using multiprocessing) and "magic weights"
 definitions_XYZ.py | files to be imported for the various training steps
 calc_magic_weights.jpynb | script to generate magic weights (step 0)
 direct_train.jpynb | step 1 of training, uses cross entropy to get the generator onto the right track
