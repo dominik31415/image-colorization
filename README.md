@@ -1,3 +1,9 @@
+![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_2_1.png =250x)
+![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_4_4.png =250x)
+![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_5_1.png =250x)
+![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_5_3.png =250x)
+![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_5.png =250x)
+
 ## Motivation
 
 This is my first attempt to use a CNN for unassisted image colorization: Given only the grey channel of an image, the network is supposed to add the original (or any realistic) color channels. In principal, this is a great problem for machine learning: take any of the bazillion image data sets, split off the grey channel, and task the network with guessing the missing colors.
@@ -9,7 +15,7 @@ A possible remedy are GANs, which are unfortunately hard to train. Straight out 
 
 ## Results
 
-My network ended up producing many “soso” images (about 70%), a few ugly images (about 10%) and quite some awesome images (about 20%), as shown above. The critic was set the outmost 16px of each generated image, thus they usually are a bit off in color.
+My network ended up producing many [“soso” images]((/samples/good.png) (about 70%), a few ugly images (about 10%) and quite some awesome images (about 20%), as shown above. The critic was set the outmost 16px of each generated image, thus they usually are a bit off in color.
 
 The most common problem (the “soso” category) are incomplete re-colorizations, i.e. the network had the right idea but did not fill in the full structure, or it simply overlooked an object completely and instead merged it with the background. Longer training might have helped here – training took altogether almost a week on my GPU and I had to stop it before results actually plateaued. I only pre-trained for less than 10 epochs, and used the GAN training for an additional 10 epochs.
 
