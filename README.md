@@ -9,7 +9,7 @@ A possible remedy are GANs, which are unfortunately hard to train. Straight out 
 
 ## Results
 
-My network ended up producing many “soso” images (about 70%), a few ugly images (about 10%) and quite some awesome images (about 20%), as shown above. 
+My network ended up producing many “soso” images (about 70%), a few ugly images (about 10%) and quite some awesome images (about 20%), as shown above. The critic was set the outmost 16px of each generated image, thus they usually are a bit off in color.
 
 The most common problem (the “soso” category) are incomplete re-colorizations, i.e. the network had the right idea but did not fill in the full structure, or it simply overlooked an object completely and instead merged it with the background. Longer training might have helped here – training took altogether almost a week on my GPU and I had to stop it before results actually plateaued. I only pre-trained for less than 10 epochs, and used the GAN training for an additional 10 epochs.
 
@@ -19,15 +19,21 @@ Further, my network failed to treat more complex structures, like cluttered imag
 ## Brief description of method
 
 (a) Work is done in La*b* color space. Given the L channel the neural net is tasked with guessing the missing color channels a/b
+
 (b) The problem is inherently multi-modal, and similarily to reference [1], I used a WGAN-GP setup
+
 (c) But for 256x256px sized images this seems to overwhelm my networks, so I moved on to a pre-trained generator
+
 (d) The generator is pre-trained as described in [2], i.e. using discrete a/b channels, a cross-entropy loss and "magic weights" to account for class inbalances
+
 (e) The training had to be done "adiabatically", i.e. by starting with an almost completely frozen generator and then slowly un-freezing layers and fine-tuning it for a few epochs. 
+
 (e) I used the places365 dataset (2016 edition, 256x256 pixels). Eventually I restricted myself to the wild_field subcategory, corresponding of 54k and 27k images. I also used the typical data augmentation methods (flipping and rotating). 
 
 
 ## Refernces
 [1] Image Colorization with Generative Adversarial Networks, Kamyar Nazeri, Eric Ng, Mehran Ebrahimi, 2018
+
 [2] Colorful Image Colorization, Richard Zhang, Phillip Isola, Alexei A. Efros, 2016
 
 
