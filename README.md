@@ -1,6 +1,8 @@
 ## Teaser
 
-The original images, the grey images the network had to work, as well as some other examples (of various quality) can be found in the samples subfolder.
+Here are some images, my network was able to colorize based on grey input images.
+
+The original images, the grey images the network had to work with, as well as some more examples (including failed ones) can be found in the samples subfolder.
 
 <img src="/samples/single_images/adverserial_2_2.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_2_8.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_4_4.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5.png" alt="drawing" width="200"/> 
 
@@ -42,11 +44,16 @@ Further, my network failed to treat more complex structures, like cluttered imag
 
 
 ## Refernces
-[1] Image Colorization with Generative Adversarial Networks, Kamyar Nazeri, Eric Ng, Mehran Ebrahimi, 2018
+[1] Image Colorization with Generative Adversarial Networks, *Kamyar Nazeri, Eric Ng, Mehran Ebrahimi*, 2018
 
-[2] Colorful Image Colorization, Richard Zhang, Phillip Isola, Alexei A. Efros, 2016
+[2] Colorful Image Colorization, *Richard Zhang, Phillip Isola, Alexei A. Efros*, 2016
 
 
 ## The files:
-todo
+model_utils.py | main file defining the models used
+data_utils.py  | file defining the data generator (using multiprocessing) and "magic weighst"
+definitions_XYZ.py | files to be imported for the various training steps
+calc_magic_weights.jpynb | script to generate magic weights (step 0)
+direct_train.jpynb | step 1 of training, uses cross entropy to get the generator onto the right track
+main_train.jpynb | step 2 of training, uses WGAN-GP to refine the generator
 
