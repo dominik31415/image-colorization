@@ -1,8 +1,10 @@
-![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_2_1.png =250x)
-![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_4_4.png =250x)
-![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_5_1.png =250x)
-![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_5_3.png =250x)
-![here](https://github.com/dominik31415/image-colorization/blob/master/samples/adverserial_5.png =250x)
+## Teaser
+
+<img src="/samples/single_images/adverserial_2_2.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_2_8.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_4_4.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5.png" alt="drawing" width="200"/> 
+
+<img src="/samples/single_images/adverserial_5_1.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5_3.png" alt="drawing" width="200"/>  | <img src="/samples/single_images/adverserial_5_5.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5_9.png" alt="drawing" width="200"/> 
+
+The original images, as well as some other examples including the grey images the network had to work with can be found in the sample subfolder.
 
 ## Motivation
 
