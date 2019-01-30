@@ -30,9 +30,9 @@ Further, my network failed to treat more complex structures, like cluttered imag
 
 ## Brief description of method
 
-(a) Work is done in La*b* color space. Given the L channel the neural net is tasked with guessing the missing color channels a/b
+(a) Work is done in La*b* color space. Given the L channel (closely resembling the grey channel) the neural net is tasked with guessing the missing color channels a/b
 
-(b) The problem is inherently multi-modal, and similarily to reference [1], I used a WGAN-GP setup
+(b) The problem is inherently multi-modal. Reference [1] used a classical GAN, but I found WGAN-GP to exhibit superior convergence behavior
 
 (c) But for 256x256px sized images this seems to overwhelm my networks, so I moved on to a pre-trained generator
 
