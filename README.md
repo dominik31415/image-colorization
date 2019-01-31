@@ -1,12 +1,10 @@
 ## Teaser
 
-Here are some images, my network was able to colorize based on grey input images.
+I trained a CNN to reconstruct the color of provided monochrome images. Here are some pretty results, left the original grey image, right my network's colorization. The samples subfolder contains many more examples (including failed ones). 
 
-The original images, the grey images the network had to work with, as well as some more examples (including failed ones) can be found in the samples subfolder.
-
-<img src="/samples/single_images/adverserial_2_2.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_2_8.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_4_4.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5.png" alt="drawing" width="200"/> 
-
-<img src="/samples/single_images/adverserial_5_1.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5_3.png" alt="drawing" width="200"/>  | <img src="/samples/single_images/adverserial_5_5.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5_9.png" alt="drawing" width="200"/> 
+<img src="/samples/single_images/grey_2_8.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_2_8.png" alt="drawing" width="200"/> | <img src="/samples/single_images/grey_4_4.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_4_4.png" alt="drawing" width="200"/> 
+<img src="/samples/single_images/grey_5.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5.png" alt="drawing" width="200"/> | <img src="/samples/single_images/grey_5_1.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5_1.png" alt="drawing" width="200"/>  
+<img src="/samples/single_images/grey_5_5.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5_5.png" alt="drawing" width="200"/> | <img src="/samples/single_images/grey_5_3.png" alt="drawing" width="200"/> | <img src="/samples/single_images/adverserial_5_3.png" alt="drawing" width="200"/> 
 
 
 
@@ -14,7 +12,7 @@ The original images, the grey images the network had to work with, as well as so
 
 This is my first attempt to use a CNN for unassisted image colorization: Given only the grey channel of an image, the network is supposed to add the original (or any realistic) color channels. In principal, this is a great problem for machine learning: take any of the bazillion image data sets, split off the grey channel, and warm up your GPU...
 
-The big drawback is though, that this problem is highly multi-modal, i.e. for most objects there are several possible colorizations, a flower can be any hue on the rainbow and even simple stuff like “water” can be anything from blue to green to brown to the reflection of the before mentioned flower. In those cases the “naive” approach using supervised learning with a loss function will often just decide on an average color and result in pale or outright grey images. 
+The big drawback is though, that this problem is highly multi-modal, i.e. for most objects there are several possible colorizations, a flower can be any hue on the rainbow and even simple "stuff" like water can be anything from blue to green to brown to the reflection of the before mentioned flower. In those cases the “naive” approach using supervised learning with a loss function will often just decide on an average color and result in pale or outright grey images. 
 
 A possible remedy are GANs, which are unfortunately hard to train. Straight out of the box I only could get my networks to converge for rather small images (like 128x128 or smaller). As a work-around I decided to employ a pre-trained generator, trained using a classical loss function, and then iteratively fine-tune it using my GAN critic.
 
@@ -23,9 +21,9 @@ A possible remedy are GANs, which are unfortunately hard to train. Straight out 
 
 My network ended up producing many [“soso” images](https://github.com/dominik31415/image-colorization/blob/master/samples/soso.png) (about 70%), a few [ugly images](https://github.com/dominik31415/image-colorization/blob/master/samples/ugly.png) (about 10%) and quite some [awesome images](https://github.com/dominik31415/image-colorization/blob/master/samples/good.png) (about 20%), as shown above. The critic was set to ignore the outmost 16px of each generated image, thus they usually are a bit off in color there.
 
-The most common problem (the “soso” category) are incomplete re-colorizations, i.e. the network had the right idea but did not fill in the full structure, or it simply overlooked an object completely and instead merged it with the background. Longer training might have helped here – training took altogether almost a week on my GPU and I had to stop it before results actually plateaued. I only pre-trained for less than 10 epochs, and used the GAN training for roughly 8 additional epochs.
+The most common problem (the “soso” category) are incomplete re-colorizations, i.e. the network had the right idea but did not fill in the full structure, or it simply overlooked an object completely and instead merged it with the background. Longer training might have helped here. But training took almost a week already on my GPU and I had to stop it before results actually plateaued. All in all, I only pre-trained for less than 15 epochs, and used the GAN training for roughly 8 additional epochs.
 
-Further, my network failed to treat more complex structures, like cluttered images and animals (most of those images go into the bad category).  Those instances typically exhibit big red blotches completely ignoring object boundaries.  To be fair, there are relatively few examples of in my training data sets, i.e. I think a larger training set would be necessary here. Lastly a larger network architecture would have certainly helped. From reference [2], we know that a well designed classical loss function can take you quite far in principal.
+Further, my network failed to treat more complex structures, like cluttered images and animals (most of those images go into the bad category).  Those instances typically exhibit big red blotches completely ignoring object boundaries.  To be fair, there are relatively few examples for these in my training data set, i.e. I think a larger set would be necessary here. Lastly a larger network architecture would have certainly helped. For images with poor results, the generator often also failed to segment the image in the pre-training step, even though this is a task that can be easily taught by a classical loss function; from reference [2] we know that a well designed loss function could take you quite far already.
 
 
 ## Brief description of method
