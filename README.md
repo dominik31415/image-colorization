@@ -23,7 +23,7 @@ My network ended up producing many [“soso” images](https://github.com/domini
 
 The most common problem (the “soso” category) are incomplete re-colorizations, i.e. the network had the right idea but did not fill in the full structure, or it simply overlooked an object completely and instead merged it with the background. Longer training might have helped here. But training took almost a week already on my GPU and I had to stop it before results actually plateaued. All in all, I only pre-trained for less than 15 epochs, and used the GAN training for roughly 8 additional epochs.
 
-Further, my network failed to treat more complex structures, like cluttered images and animals (most of those images go into the bad category).  Those instances typically exhibit big red blotches completely ignoring object boundaries.  To be fair, there are relatively few examples for these in my training data set, i.e. I think a larger set would be necessary here. Lastly a larger network architecture would have certainly helped. For images with poor results, the generator often also failed to segment the image in the pre-training step, even though this is a task that can be easily taught by a classical loss function; from reference [2] we know that a well designed loss function could take you quite far already.
+Further, my network failed to treat more complex structures, like cluttered images and animals (most of those images go into the bad category).  Those instances typically exhibit big red blotches completely ignoring object boundaries.  To be fair, there are relatively few examples for these in my training data set, i.e. I think a more comprehensive set would be necessary here. Lastly a larger network architecture would have certainly improved results. For images with poor results, the generator often failed on a lower level to segment the image in the pre-training step, even though this is a task that had been demonstrated to be learnable with a classical loss function; from reference [2] we know that a well designed loss could take you quite far already.
 
 
 ## Brief description of method
@@ -38,7 +38,7 @@ Further, my network failed to treat more complex structures, like cluttered imag
 
 (e) The training had to be done "adiabatically", i.e. by starting with an almost completely frozen generator and then slowly un-freezing layers and fine-tuning it for a few epochs. 
 
-(e) I used the places365 dataset (2016 edition, 256x256 pixels). Eventually I restricted myself to the wild_field subcategory, corresponding of 54k and 27k images. I also used the typical data augmentation methods (flipping and rotating). 
+(e) I used the places365 dataset (2016 edition, 256x256 pixels). Eventually I restricted myself to the wild_field subcategory, comprised of 54k and 27k images. I also used the typical data augmentation methods (flipping and rotating). 
 
 
 ## References
